@@ -73,6 +73,26 @@
                     </testFilesIncluded>
                     <jmeterVersion>5.0</jmeterVersion>
 
+                    <jmeterExtensions>
+                        <!-- Custom Thread Groups
+                        https://jmeter-plugins.org/?search=jpgc-casutg
+			            http://repo.maven.apache.org/maven2/kg/apc/jmeter-plugins-casutg/
+			            -->
+                        <artifact>kg.apc:jmeter-plugins-casutg:2.6</artifact>
+                    </jmeterExtensions>
+
+                    <testPlanLibraries>
+                        <!-- JMeter Plugins Common Classes: Various utility classes to ease development of plugins
+			            http://repo.maven.apache.org/maven2/kg/apc/jmeter-plugins-cmn-jmeter/
+			            -->
+                        <artifact>kg.apc:jmeter-plugins-cmn-jmeter:0.6</artifact>
+                    </testPlanLibraries>
+
+                    <downloadExtensionDependencies>false</downloadExtensionDependencies>
+                    <downloadLibraryDependencies>false</downloadLibraryDependencies>
+                    <downloadOptionalDependencies>false</downloadOptionalDependencies>
+                    <downloadJMeterDependencies>false</downloadJMeterDependencies>
+
                     <!-- Configuring the jvm that the jmeter process runs in
                     https://github.com/jmeter-maven-plugin/jmeter-maven-plugin/wiki/Configuring-the-jvm-that-the-jmeter-process-runs-in
                     http://reins.altervista.org/java/A_Collection_of_JVM_Options_MP.html
