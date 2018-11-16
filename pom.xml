@@ -1,0 +1,119 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.loadtestweb</groupId>
+    <artifactId>jmeter-loadtestweb</artifactId>
+    <version>0.1.0</version>
+    <name>jmeter-loadtestweb</name>
+    <description>Apache.JMeter test for loadtestweb</description>
+
+    <!-- Properties -->
+    <properties>
+        <!-- Test name -->
+        <performancetest.script>jmeter-loadtestweb</performancetest.script>
+    </properties>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/polarnik/jmeter-loadtestweb</url>
+        <connection>https://github.com/polarnik/jmeter-loadtestweb.git</connection>
+        <developerConnection>git@github.com:polarnik/jmeter-loadtestweb.git</developerConnection>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>polarnik</id>
+            <name>SMIRNOV Vyacheslav</name>
+            <email>owasp@yandex.ru</email>
+            <url>https://github.com/polarnik</url>
+            <organization>Raiffeisen</organization>
+            <organizationUrl>https://www.raiffeisen.ru/</organizationUrl>
+            <roles>
+                <role>Expert tester</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <!-- Build Settings -->
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>com.lazerycode.jmeter</groupId>
+                <artifactId>jmeter-maven-plugin</artifactId>
+                <version>2.8.1</version>
+                <executions>
+                    <!-- Run JMeter tests -->
+                    <execution>
+                        <id>jmeter-tests</id>
+                        <goals>
+                            <goal>jmeter</goal>
+                        </goals>
+                    </execution>
+
+                    <!-- Fail build on errors in test -->
+                    <execution>
+                        <id>jmeter-check-results</id>
+                        <goals>
+                            <goal>results</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <testFilesIncluded>
+                        <jMeterTestFile>${performancetest.script}.jmx</jMeterTestFile>
+                    </testFilesIncluded>
+                    <jmeterVersion>5.0</jmeterVersion>
+
+                    <!-- Configuring the jvm that the jmeter process runs in
+                    https://github.com/jmeter-maven-plugin/jmeter-maven-plugin/wiki/Configuring-the-jvm-that-the-jmeter-process-runs-in
+                    http://reins.altervista.org/java/A_Collection_of_JVM_Options_MP.html
+                    https://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html
+                    -->
+                    <jMeterProcessJVMSettings>
+                        <xms>1024</xms>
+                        <xmx>2048</xmx>
+                        <arguments>
+                            <argument>-XX:MaxMetaspaceSize=256m</argument>
+
+                            <argument>-XX:+UseG1GC</argument>
+                            <argument>-XX:MaxGCPauseMillis=100</argument>
+                            <argument>-XX:G1ReservePercent=20</argument>
+
+                            <argument>-Duser.language=en</argument>
+                            <argument>-Duser.region=EN</argument>
+
+                            <argument>-Dfile.encoding=UTF-8</argument>
+
+                            <argument>-XX:-HeapDumpOnOutOfMemoryError</argument>
+                            <argument>-server</argument>
+
+                        </arguments>
+                    </jMeterProcessJVMSettings>
+
+                    <testResultsTimestamp>false</testResultsTimestamp>
+                    <overrideRootLogLevel>DEBUG</overrideRootLogLevel>
+                    <suppressJMeterOutput>false</suppressJMeterOutput>
+                    <ignoreResultFailures>true</ignoreResultFailures>
+                    <guiTestFile>${project.basedir}/src/test/jmeter/${performancetest.script}.jmx</guiTestFile>
+
+                    <propertiesJMeter>
+                        <jmeter.save.saveservice.thread_counts>true</jmeter.save.saveservice.thread_counts>
+                        <jmeter.save.saveservice.subresults>true</jmeter.save.saveservice.subresults>
+                        <sample_variables></sample_variables>
+                        <!-- # Disable sent statistics to https://jmeter-plugins.org/stats/ -->
+                        <jpgc.repo.sendstats>false</jpgc.repo.sendstats>
+                    </propertiesJMeter>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
