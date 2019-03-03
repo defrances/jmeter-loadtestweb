@@ -178,6 +178,63 @@
                 </configuration>
             </plugin>
 
+            <plugin>
+                <!-- https://www.mojohaus.org/exec-maven-plugin/usage.html -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>some-execution</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <workingDirectory>${project.basedir}/src/test/tools/</workingDirectory>
+                    <!-- https://github.com/jpillora/csv-to-influxdb/releases -->
+                    <executable>${project.basedir}/src/test/tools/csv-to-influxdb_linux_amd64</executable>
+
+                    <!--<executable>csv-to-influxdb_windows_amd64</executable>-->
+                    <!--<executable>csv-to-influxdb_darwin_amd64</executable>-->
+                    <arguments>
+                        <argument>--server</argument>
+                        <argument>http://localhost:8086</argument>
+
+                        <argument>--database</argument>
+                        <argument>jmeter</argument>
+
+                        <argument>--username</argument>
+                        <argument>none</argument>
+
+                        <argument>--password</argument>
+                        <argument>none</argument>
+
+                        <argument>--measurement</argument>
+                        <argument>allRequest</argument>
+
+                        <argument>--batch-size</argument>
+                        <argument>5000</argument>
+
+                        <argument>--tag-columns</argument>
+                        <argument>label,responseCode,responseMessage,threadName,dataType,success,failureMessage,URL</argument>
+
+                        <argument>--timestamp-column</argument>
+                        <argument>timeStamp</argument>
+
+                        <argument>--timestamp-format</argument>
+                        <argument>unix</argument>
+
+                        <argument>--attempts</argument>
+                        <argument>10</argument>
+
+                        <argument>${project.build.directory}/jmeter/results/${performancetest.script}.csv</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 </project>

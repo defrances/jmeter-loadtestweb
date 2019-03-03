@@ -53,11 +53,11 @@
       <hashTree/>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="Profile 1 Request small" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="-1132727996">
+          <collectionProp name="-1939652985">
             <stringProp name="1507423">1000</stringProp>
             <stringProp name="0">0</stringProp>
             <stringProp name="1598">20</stringProp>
-            <stringProp name="48">0</stringProp>
+            <stringProp name="48873">180</stringProp>
             <stringProp name="10">10</stringProp>
           </collectionProp>
         </collectionProp>
@@ -177,11 +177,11 @@
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="Profile 2 Request big" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="1130525660">
+          <collectionProp name="-1939652985">
             <stringProp name="1507423">1000</stringProp>
             <stringProp name="0">0</stringProp>
             <stringProp name="1598">20</stringProp>
-            <stringProp name="48">0</stringProp>
+            <stringProp name="48873">180</stringProp>
             <stringProp name="10">10</stringProp>
           </collectionProp>
         </collectionProp>
@@ -300,11 +300,11 @@
       </hashTree>
       <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="Profile Mix Request small + big" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
-          <collectionProp name="1130525660">
-            <stringProp name="1507423">1000</stringProp>
+          <collectionProp name="245447427">
+            <stringProp name="1567005">3000</stringProp>
             <stringProp name="0">0</stringProp>
-            <stringProp name="1598">20</stringProp>
-            <stringProp name="48">0</stringProp>
+            <stringProp name="1567">10</stringProp>
+            <stringProp name="50547">300</stringProp>
             <stringProp name="10">10</stringProp>
           </collectionProp>
         </collectionProp>
