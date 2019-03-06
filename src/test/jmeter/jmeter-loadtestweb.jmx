@@ -89,7 +89,7 @@
         <stringProp name="variableNames">comment</stringProp>
       </CSVDataSet>
       <hashTree/>
-      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group: Debug" enabled="true">
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group: Debug" enabled="false">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">false</boolProp>
@@ -222,7 +222,7 @@
         </ResultCollector>
         <hashTree/>
       </hashTree>
-      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="false">
+      <kg.apc.jmeter.threads.UltimateThreadGroup guiclass="kg.apc.jmeter.threads.UltimateThreadGroupGui" testclass="kg.apc.jmeter.threads.UltimateThreadGroup" testname="jp@gc - Ultimate Thread Group" enabled="true">
         <collectionProp name="ultimatethreadgroupdata">
           <collectionProp name="-1909881663">
             <stringProp name="471768829">${__P(tpm,1000)}</stringProp>
@@ -353,7 +353,7 @@
           <stringProp name="filename">${reportFolder}/all.xml</stringProp>
         </ResultCollector>
         <hashTree/>
-        <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener: Graphite summary" enabled="true">
+        <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener: Graphite summary" enabled="false">
           <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="graphiteMetricsSender" elementType="Argument">
@@ -396,7 +396,7 @@
           <stringProp name="classname">org.apache.jmeter.visualizers.backend.graphite.GraphiteBackendListenerClient</stringProp>
         </BackendListener>
         <hashTree/>
-        <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener: Graphite" enabled="true">
+        <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener: Graphite" enabled="false">
           <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="graphiteMetricsSender" elementType="Argument">
@@ -439,7 +439,7 @@
           <stringProp name="classname">org.apache.jmeter.visualizers.backend.graphite.GraphiteBackendListenerClient</stringProp>
         </BackendListener>
         <hashTree/>
-        <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener: Influx summary" enabled="true">
+        <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener: Influx summary" enabled="false">
           <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="influxdbMetricsSender" elementType="Argument">
@@ -492,7 +492,7 @@
           <stringProp name="classname">org.apache.jmeter.visualizers.backend.influxdb.InfluxdbBackendListenerClient</stringProp>
         </BackendListener>
         <hashTree/>
-        <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener: Influx " enabled="true">
+        <BackendListener guiclass="BackendListenerGui" testclass="BackendListener" testname="Backend Listener: Influx " enabled="false">
           <elementProp name="arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" enabled="true">
             <collectionProp name="Arguments.arguments">
               <elementProp name="influxdbMetricsSender" elementType="Argument">
@@ -638,43 +638,6 @@
                   </elementProp>
                 </collectionProp>
               </HeaderManager>
-              <hashTree/>
-              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-                <boolProp name="ResultCollector.error_logging">false</boolProp>
-                <objProp>
-                  <name>saveConfig</name>
-                  <value class="SampleSaveConfiguration">
-                    <time>true</time>
-                    <latency>true</latency>
-                    <timestamp>true</timestamp>
-                    <success>true</success>
-                    <label>true</label>
-                    <code>true</code>
-                    <message>true</message>
-                    <threadName>true</threadName>
-                    <dataType>true</dataType>
-                    <encoding>false</encoding>
-                    <assertions>true</assertions>
-                    <subresults>true</subresults>
-                    <responseData>false</responseData>
-                    <samplerData>false</samplerData>
-                    <xml>false</xml>
-                    <fieldNames>true</fieldNames>
-                    <responseHeaders>false</responseHeaders>
-                    <requestHeaders>false</requestHeaders>
-                    <responseDataOnError>false</responseDataOnError>
-                    <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-                    <assertionsResultsToSave>0</assertionsResultsToSave>
-                    <bytes>true</bytes>
-                    <sentBytes>true</sentBytes>
-                    <url>true</url>
-                    <threadCounts>true</threadCounts>
-                    <idleTime>true</idleTime>
-                    <connectTime>true</connectTime>
-                  </value>
-                </objProp>
-                <stringProp name="filename"></stringProp>
-              </ResultCollector>
               <hashTree/>
             </hashTree>
             <com.blazemeter.jmeter.controller.ParallelSampler guiclass="com.blazemeter.jmeter.controller.ParallelControllerGui" testclass="com.blazemeter.jmeter.controller.ParallelSampler" testname="bzm - Parallel Controller 01.1" enabled="true">
@@ -7906,43 +7869,6 @@
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
-                <boolProp name="ResultCollector.error_logging">false</boolProp>
-                <objProp>
-                  <name>saveConfig</name>
-                  <value class="SampleSaveConfiguration">
-                    <time>true</time>
-                    <latency>true</latency>
-                    <timestamp>true</timestamp>
-                    <success>true</success>
-                    <label>true</label>
-                    <code>true</code>
-                    <message>true</message>
-                    <threadName>true</threadName>
-                    <dataType>true</dataType>
-                    <encoding>false</encoding>
-                    <assertions>true</assertions>
-                    <subresults>true</subresults>
-                    <responseData>false</responseData>
-                    <samplerData>false</samplerData>
-                    <xml>false</xml>
-                    <fieldNames>true</fieldNames>
-                    <responseHeaders>false</responseHeaders>
-                    <requestHeaders>false</requestHeaders>
-                    <responseDataOnError>false</responseDataOnError>
-                    <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
-                    <assertionsResultsToSave>0</assertionsResultsToSave>
-                    <bytes>true</bytes>
-                    <sentBytes>true</sentBytes>
-                    <url>true</url>
-                    <threadCounts>true</threadCounts>
-                    <idleTime>true</idleTime>
-                    <connectTime>true</connectTime>
-                  </value>
-                </objProp>
-                <stringProp name="filename"></stringProp>
-              </ResultCollector>
-              <hashTree/>
             </hashTree>
             <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/2017/02/25/test-5/comment-page-1/ (GET)" enabled="true">
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
@@ -8961,7 +8887,7 @@
             </hashTree>
           </hashTree>
         </hashTree>
-        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller: Article 3" enabled="false">
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller: Article 3" enabled="true">
           <intProp name="ThroughputController.style">1</intProp>
           <boolProp name="ThroughputController.perThread">false</boolProp>
           <intProp name="ThroughputController.maxThroughput">1</intProp>
@@ -9952,7 +9878,7 @@
             </hashTree>
           </hashTree>
         </hashTree>
-        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller: Article 4" enabled="false">
+        <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller: Article 4" enabled="true">
           <intProp name="ThroughputController.style">1</intProp>
           <boolProp name="ThroughputController.perThread">false</boolProp>
           <intProp name="ThroughputController.maxThroughput">1</intProp>
