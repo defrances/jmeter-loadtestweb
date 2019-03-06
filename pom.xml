@@ -48,7 +48,7 @@
             <plugin>
                 <groupId>com.lazerycode.jmeter</groupId>
                 <artifactId>jmeter-maven-plugin</artifactId>
-                <version>2.8.1</version>
+                <version>2.8.6</version>
                 <executions>
                     <!-- Run JMeter tests -->
                     <execution>
@@ -78,7 +78,7 @@
                     <testFilesIncluded>
                         <jMeterTestFile>${performancetest.script}.jmx</jMeterTestFile>
                     </testFilesIncluded>
-                    <jmeterVersion>5.0</jmeterVersion>
+                    <jmeterVersion>5.1</jmeterVersion>
 
                     <jmeterExtensions>
                         <!-- Custom Thread Groups
@@ -86,6 +86,13 @@
 			            http://repo.maven.apache.org/maven2/kg/apc/jmeter-plugins-casutg/
 			            -->
                         <artifact>kg.apc:jmeter-plugins-casutg:2.6</artifact>
+
+                        <!-- Parallel Controller & Sampler
+                        https://jmeter-plugins.org/?search=parallel
+                        https://github.com/Blazemeter/jmeter-bzm-plugins/blob/master/parallel/Parallel.md
+                        https://www.blazemeter.com/blog/how-to-use-the-parallel-controller-in-jmeter
+                        -->
+                        <artifact>com.blazemeter:jmeter-parallel:0.9</artifact>
                     </jmeterExtensions>
 
                     <testPlanLibraries>
@@ -106,7 +113,7 @@
                     https://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html
                     -->
                     <jMeterProcessJVMSettings>
-                        <xms>1024</xms>
+                        <xms>256</xms>
                         <xmx>2048</xmx>
                         <arguments>
                             <argument>-XX:MaxMetaspaceSize=256m</argument>
@@ -146,10 +153,15 @@
                     </propertiesReportGenerator>
 
                     <propertiesUser>
-                        <testDataFolder>${project.build.directory}/jmeter/testFiles/data</testDataFolder>
+                        <testDataFolder>${project.basedir}/src/test/jmeter/data</testDataFolder>
                         <reportFolder>${project.build.directory}/jmeter/results</reportFolder>
-                        <tpm_profile1_for_VU>20</tpm_profile1_for_VU>
-                        <profile2_percent>10</profile2_percent>
+                        <percent_Main>100</percent_Main>
+                        <percent_Prev>50</percent_Prev>
+                        <percent_Article10>100</percent_Article10>
+                        <percent_Article3>20</percent_Article3>
+                        <percent_Article4>10</percent_Article4>
+
+                        <tpm>1000</tpm>
                     </propertiesUser>
 
                     <resultsFileFormat>csv</resultsFileFormat>
